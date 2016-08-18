@@ -1,0 +1,9 @@
+/.settings
+/bin
+/gen
+**.class
+*.class
+*.classpath
+*.apk
+proguard/
+/project.properties
