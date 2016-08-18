@@ -85,7 +85,7 @@ public class MediaController extends FrameLayout {
   private View mRoot;
   private SeekBar mProgress;
   private TextView mEndTime, mCurrentTime;
-  private TextView mFileName;
+//  private TextView mFileName;
   private OutlineTextView mInfoView;
   private String mTitle;
   private long mDuration;
@@ -257,9 +257,9 @@ public class MediaController extends FrameLayout {
 
     mEndTime = (TextView) v.findViewById(getResources().getIdentifier("mediacontroller_time_total", "id", mContext.getPackageName()));
     mCurrentTime = (TextView) v.findViewById(getResources().getIdentifier("mediacontroller_time_current", "id", mContext.getPackageName()));
-    mFileName = (TextView) v.findViewById(getResources().getIdentifier("mediacontroller_file_name", "id", mContext.getPackageName()));
-    if (mFileName != null)
-      mFileName.setText(mTitle);
+//    mFileName = (TextViewC) v.findViewById(getResources().getIdentifier("mediacontroller_file_name", "id", mContext.getPackageName()));
+//    if (mFileName != null)
+//      mFileName.setText(mTitle);
   }
 
   public void setMediaPlayer(MediaPlayerControl player) {
@@ -286,9 +286,9 @@ public class MediaController extends FrameLayout {
    * @param name
    */
   public void setFileName(String name) {
-    mTitle = name;
-    if (mFileName != null)
-      mFileName.setText(mTitle);
+//    mTitle = name;
+//    if (mFileName != null)
+//      mFileName.setText(mTitle);
   }
 
   /**
