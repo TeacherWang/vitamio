@@ -74,7 +74,8 @@ import io.vov.vitamio.utils.StringUtils;
  * created in an xml layout.
  */
 public class MediaController extends FrameLayout {
-  private static final int sDefaultTimeout = 3000;
+//  private static final int sDefaultTimeout = 3000;
+	private static final int sDefaultTimeout = 0;
   private static final int FADE_OUT = 1;
   private static final int SHOW_PROGRESS = 2;
   private MediaPlayerControl mPlayer;
@@ -246,20 +247,22 @@ public class MediaController extends FrameLayout {
       mPauseButton.setOnClickListener(mPauseListener);
     }
 
-    mProgress = (SeekBar) v.findViewById(getResources().getIdentifier("mediacontroller_seekbar", "id", mContext.getPackageName()));
-    if (mProgress != null) {
-      if (mProgress instanceof SeekBar) {
-        SeekBar seeker = (SeekBar) mProgress;
-        seeker.setOnSeekBarChangeListener(mSeekListener);
-      }
-      mProgress.setMax(1000);
-    }
-
-    mEndTime = (TextView) v.findViewById(getResources().getIdentifier("mediacontroller_time_total", "id", mContext.getPackageName()));
-    mCurrentTime = (TextView) v.findViewById(getResources().getIdentifier("mediacontroller_time_current", "id", mContext.getPackageName()));
+    // 我屏蔽的start
+//    mProgress = (SeekBar) v.findViewById(getResources().getIdentifier("mediacontroller_seekbar", "id", mContext.getPackageName()));
+//    if (mProgress != null) {
+//      if (mProgress instanceof SeekBar) {
+//        SeekBar seeker = (SeekBar) mProgress;
+//        seeker.setOnSeekBarChangeListener(mSeekListener);
+//      }
+//      mProgress.setMax(1000);
+//    }
+    
+//    mEndTime = (TextView) v.findViewById(getResources().getIdentifier("mediacontroller_time_total", "id", mContext.getPackageName()));
+//    mCurrentTime = (TextView) v.findViewById(getResources().getIdentifier("mediacontroller_time_current", "id", mContext.getPackageName()));
 //    mFileName = (TextViewC) v.findViewById(getResources().getIdentifier("mediacontroller_file_name", "id", mContext.getPackageName()));
 //    if (mFileName != null)
 //      mFileName.setText(mTitle);
+    // 我屏蔽的end
   }
 
   public void setMediaPlayer(MediaPlayerControl player) {
@@ -352,7 +355,7 @@ public class MediaController extends FrameLayout {
 
     if (timeout != 0) {
       mHandler.removeMessages(FADE_OUT);
-      mHandler.sendMessageDelayed(mHandler.obtainMessage(FADE_OUT), timeout);
+//      mHandler.sendMessageDelayed(mHandler.obtainMessage(FADE_OUT), timeout);
     }
   }
 
@@ -361,23 +364,23 @@ public class MediaController extends FrameLayout {
   }
 
   public void hide() {
-    if (mAnchor == null)
-      return;
-
-    if (mShowing) {
-      try {
-        mHandler.removeMessages(SHOW_PROGRESS);
-        if (mFromXml)
-          setVisibility(View.GONE);
-        else
-          mWindow.dismiss();
-      } catch (IllegalArgumentException ex) {
-        Log.d("MediaController already removed");
-      }
-      mShowing = false;
-      if (mHiddenListener != null)
-        mHiddenListener.onHidden();
-    }
+//    if (mAnchor == null)
+//      return;
+//
+//    if (mShowing) {
+//      try {
+//        mHandler.removeMessages(SHOW_PROGRESS);
+//        if (mFromXml)
+//          setVisibility(View.GONE);
+//        else
+//          mWindow.dismiss();
+//      } catch (IllegalArgumentException ex) {
+//        Log.d("MediaController already removed");
+//      }
+//      mShowing = false;
+//      if (mHiddenListener != null)
+//        mHiddenListener.onHidden();
+//    }
   }
 
   public void setOnShownListener(OnShownListener l) {
