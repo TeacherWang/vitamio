@@ -364,6 +364,9 @@ public class MediaController extends FrameLayout {
   }
 
   public void hide() {
+	  if( mPauseButton != null ){
+		  mPauseButton.setVisibility(View.INVISIBLE);
+	  }
 //    if (mAnchor == null)
 //      return;
 //
